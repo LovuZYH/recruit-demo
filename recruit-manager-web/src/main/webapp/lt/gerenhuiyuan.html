@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- 页面meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>网站后台管理中心- Powered by 74cms.com</title>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+<link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../plugins/adminLTE/css/AdminLTE.css">
+<link rel="stylesheet" href="../plugins/adminLTE/css/skins/_all-skins.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/vue.min.js"></script>
+
+<link href="../upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+<script src="../upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+<script src="../upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+<script src="../upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+<script src="../upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+
+<link rel="stylesheet" href="../sPage/static/jquery.sPage.css">
+<script src="../sPage/static/jquery.sPage.js"></script>
+</head>
+
+<body class="hold-transition skin-red sidebar-mini"  >
+<!-- .box-body -->
+
+<div class="box-header with-border">
+    <h3 class="box-title">个人会员</h3>
+</div>
+<div class="seltpye_x">
+    <div class="left">注册时间</div>
+    <div class="right">
+        <a href="../upload/index.php?m=admin&c=company_members&a=index&settr=" class="select">不限</a>
+        <a href="../upload/index.php?m=admin&c=company_members&a=index&settr=3" >三天内</a>
+        <a href="../upload/index.php?m=admin&c=company_members&a=index&settr=7" >一周内</a>
+        <a href="../upload/index.php?m=admin&c=company_members&a=index&settr=30" >一月内</a>
+        <a href="../upload/index.php?m=admin&c=company_members&a=index&settr=180" >半年内</a>
+        <a href="../upload/index.php?m=admin&c=company_members&a=index&settr=360" >一年内</a>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="seltpye_x">
+    <div class="left">微信绑定</div>
+    <div class="right">
+        <a href="../upload/index.php?m=admin&c=company_members&a=index&is_bind=" class="select">不限</a>
+        <a href="../upload/index.php?m=admin&c=company_members&a=index&is_bind=1" >绑定</a>
+        <a href="../upload/index.php?m=admin&c=company_members&a=index&is_bind=0" >未绑定</a>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="box-body">
+
+    <!-- 数据表格 -->
+    <div class="table-box" id="contentCategory_grid">
+
+        <!--工具栏-->
+        <div class="pull-left">
+            <div class="form-group form-inline">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default" title="新建" data-toggle="modal" data-target="#editModal" ><i class="fa fa-file-o"></i> 新建</button>
+                    <button type="button" onclick="delAll()" class="btn btn-default" title="删除" ><i class="fa fa-trash-o"></i> 删除</button>
+                    <button type="button" class="btn btn-default" title="刷新" onclick="window.location.reload();"><i class="fa fa-refresh"></i> 刷新</button>
+                </div>
+            </div>
+        </div>
+        <div class="box-tools pull-right">
+            <div class="has-feedback">
+                名称：<input type="text" id="username" name="username">	<button class="btn btn-default" onclick="search()">查询</button>
+            </div>
+        </div>
+        <!--工具栏/-->
+
+        <!--数据列表-->
+        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+            <thead>
+            <tr>
+                <th class="" style="padding-right:0px">
+                    <input id="selall" type="checkbox"class="icheckbox_square-blue">
+                </th>
+                <th class="sorting_asc">ID</th>
+                <th class="sorting">用户名</th>
+                <th class="sorting">手机</th>
+                <th class="sorting">email</th>
+                <th class="text-center">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="entity in contentCategoryList">
+                <td><input  type="checkbox" v-bind:value="entity.id" name="check"></td>
+                <td>{{entity.id}}</td>
+                <td>{{entity.username}}</td>
+                <td>{{entity.phone}}</td>
+                <td>{{entity.email}}</td>
+                <!-- <td>{{entity.zhucetime}}</td>
+                 <td>{{entity.zuihoutime}}</td>-->
+                <td class="text-center">
+                    <button type="button" v-on:click="upContentCategory(entity.id)" class="btn bg-olive btn-xs" data-toggle="modal" data-target="#editModal" >修改</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!--数据列表/-->
+
+    </div>
+    <!-- 数据表格 /-->
+</div>
+<div id="myPage"></div>
+<!-- /.box-body -->
+<!-- 分页 -->
+
+
+<!-- 编辑窗口 -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">新建会员</h3>
+            </div>
+            <div class="modal-body" id="contentCategoryForm">
+
+                <table class="table table-bordered table-striped"  width="800px">
+                    <tr>
+                        <td>用户名</td>
+                        <td>
+                            <input  class="form-control" style="display: none" v-model="contentId">
+                            <input  class="form-control" v-model="username" placeholder="用户名">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>手机</td>
+                        <td><input  class="form-control" v-model="phone" placeholder="手机"></td>
+                    </tr>
+                    <tr>
+                        <td>email</td>
+                        <td><input  class="form-control" v-model="email" placeholder="email"></td>
+                    </tr>
+                    <tr>
+                        <td>密码</td>
+                        <td><input  class="form-control" v-model="password" placeholder="密码"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" onclick="addContentCategory()" data-dismiss="modal" aria-hidden="true"> 保存</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<script type="text/javascript">
+    var vm;
+    $(function() {
+        initContent();
+        findContent();
+    })
+
+    function initContent(page){
+        $.ajax({
+            url:'../gerenhuiyuan/showAll.do',
+            type:'post',
+            data:{
+                page:page,
+                pageSize:5,
+            },
+            dataType:'json',
+            success:function (result) {
+                vm = new Vue({
+                    el:'#contentCategory_grid',
+                    data:{
+                        contentCategoryList:result.rows,
+                    }
+                })
+
+                $("#myPage").sPage({
+                    page:page,//当前页码，必填
+                    total:result.total,//数据总条数，必填
+                    pageSize:5,//每页显示多少条数据，默认10条
+                    totalTxt:"共{total}条",//数据总条数文字描述，{total}为占位符，默认"共{total}条"
+                    showTotal:true,//是否显示总条数，默认关闭：false
+                    showSkip:true,//是否显示跳页，默认关闭：false
+                    showPN:true,//是否显示上下翻页，默认开启：true
+                    prevPage:"上一页",//上翻页文字描述，默认“上一页”
+                    nextPage:"下一页",//下翻页文字描述，默认“下一页”
+                    backFun:function(page){
+                        //点击分页按钮回调函数，返回当前页码
+                        findContent(page);
+                    }
+                });
+            }
+        })
+    }
+    function findContent(page){
+        $.ajax({
+            url:'../gerenhuiyuan/showAll.do',
+            type:'post',
+            data:{
+                page:page,
+                pageSize:5,
+            },
+            dataType:'json',
+            success:function (result) {
+                vm.contentCategoryList=result.rows;
+            }
+        })
+    }
+    //条查
+    function search(){
+        $.ajax({
+            url:"../gerenhuiyuan/showAll.do",
+            type:"post",
+            data:{name:$("#name").val()},
+            success:function(result){
+                vm.contentCategoryList=result
+            }
+        })
+    }
+
+    var contentVUE=new Vue({
+        el: '#contentCategoryForm',
+        data: {
+            contentId:'',
+            username: '',
+            phone: '',
+            email: '',
+            password:''
+        }
+    })
+
+    //新增
+    function addContentCategory(){
+        $.post("../gerenhuiyuan/add.do",{id:contentVUE.contentId,username:contentVUE.username,
+            phone:contentVUE.phone,email:contentVUE.email,password:contentVUE.password},
+            function(){
+            location.href="gerenhuiyuan.html"
+        })
+    }
+    //修改
+    function upContentCategory(id){
+        $.post("../gerenhuiyuan/findById.do",{id:id},function(data){
+            contentVUE.contentId=data.id
+            contentVUE.username=data.username
+            contentVUE.phone=data.phone
+            contentVUE.email=data.email
+            contentVUE.password=data.password
+        })
+    }
+    //批删
+    function delAll() {
+        var ids=""
+        $("input[name='check']:checked").each(function(){
+            ids += ids==""?$(this).val():","+$(this).val();
+        })
+        $.post("../gerenhuiyuan/delete.do",{ids:ids},function(){
+            location.href="gerenhuiyuan.html"
+        })
+    }
+
+
+</script>
+</html>

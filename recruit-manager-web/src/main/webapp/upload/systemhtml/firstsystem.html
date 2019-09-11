@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/config',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=config&amp;a=index&amp;menu_id=1&amp;sub_menu_id=6',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">系统<strong>/</strong>网站配置</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            网站配置                        </div>
+        <div class="topnav">
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=index" class="select">网站配置</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=reg" class="">注册设置</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=map" class="">电子地图</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=hotword&a=index" class="">热门关键字</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=agreement" class="">注册协议</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=config_points" class="">积分配置</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=bottom" class="">首页底部</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=other" class="">其它</a>                <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+    <div class="toptip">
+        <div class="toptit">提示：</div>
+        <p>页面标题设置以及关键字设置等请在页面管理中设置。</p>
+        <p>网站域名和网站安装目录填写错误可导致网站部分功能不能使用。</p>
+    </div>
+    <form action="/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=edit" method="post" enctype="multipart/form-data" name="form1" id="form1">
+        <div class="toptit">网站配置</div>
+        <div class="form_main width200">
+            <div class="fl">网站名称：</div>
+            <div class="fr">
+                <input name="site_name" type="text" class="input_text_default" maxlength="30" value="骑士人才系统"/>
+            </div>
+            <div class="fl">网站域名：</div>
+            <div class="fr">
+                <input name="site_domain" type="text" class="input_text_default" maxlength="100" value="http://localhost" placeholder="结尾不要加 &quot; / &quot;" />
+            </div>
+            <div class="fl">安装目录：</div>
+            <div class="fr">
+                <input name="site_dir" type="text" class="input_text_default" maxlength="40" value="/74cms_v4.2.111/upload/" placeholder='以 " / " 开头和结尾, 如果安装在根目录，则为" / "' />
+            </div>
+            <div class="fl">联系电话(顶部)：</div>
+            <div class="fr">
+                <input name="top_tel" type="text" class="input_text_default" maxlength="80" value="000-00000000"/>
+            </div>
+            <div class="fl">联系电话(底部)：</div>
+            <div class="fr">
+                <input name="bootom_tel" type="text" class="input_text_default" maxlength="80" value="000-00000000"/>
+            </div>
+            <div class="fl">联系邮箱：</div>
+            <div class="fr">
+                <input name="contact_email" type="text" class="input_text_default" maxlength="80" value=""/>
+            </div>
+            <div class="fl">网站底部联系地址：</div>
+            <div class="fr">
+                <input name="address" type="text" class="input_text_default" maxlength="120" value="00省00市00路00号0大厦00楼"/>
+            </div>
+            <div class="fl">网站底部其他说明：</div>
+            <div class="fr">
+                <input name="bottom_other" type="text" class="input_text_default" maxlength="200" value="Copyright © 2016 74cms.com All Right Reserved "/>
+            </div>
+            <div class="fl">网站备案号(ICP)：</div>
+            <div class="fr">
+                <input name="icp" type="text" class="input_text_default" maxlength="30" value="icp000000000"/>
+            </div>
+            <div class="fl">暂时关闭网站：</div>
+            <div class="fr">
+                <div data-code="0,1" class="imgchecked_small "><input name="isclose" type="hidden" value="0" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="fl">暂时关闭原因：</div>
+            <div class="fr">
+                <input name="close_reason" type="text" class="input_text_default" value=""/>
+            </div>
+            <div class="fl">第三方流量统计代码：</div>
+            <div class="fr">
+                <textarea name="statistics" class="input_text_default" style="height: 100px; line-height: 180%;"></textarea>
+            </div>
+            <div class="fl">网站首页Logo：</div>
+            <div class="fr J-file-input-box">
+                <div class="file-input-src hid">
+                    <div class="img"></div>
+                    <div class="del file-input-del" id="" name="logo_home">点击更换</div>
+                    <div class="r-note">(建议尺寸240*70)</div>
+                </div>
+                <div class="file-input-block" id="J_upload_logo_home_btn" name="logo_home"><span class="o-txt">上传</span>网站首页Logo<span class="re-txt">(建议尺寸240*70)</span></div>            <input type="hidden" class="file-input-save-name" name="logo_home" value="">
+            </div>
+            <div class="fl">网站会员中心Logo：</div>
+            <div class="fr J-file-input-box">
+                <div class="file-input-src hid">
+                    <div class="img"></div>
+                    <div class="del file-input-del" id="" name="logo_user">点击更换</div>
+                    <div class="r-note">(建议尺寸210*55)</div>
+                </div>
+                <div class="file-input-block" id="J_upload_logo_user_btn" name="logo_user" ><span class="o-txt">上传</span>网站会员中心Logo<span class="re-txt">(建议尺寸210*55)</span></div>            <input type="hidden" class="file-input-save-name" name="logo_user" value="">
+            </div>
+            <div class="fl">网站其它页Logo：</div>
+            <div class="fr J-file-input-box">
+                <div class="file-input-src hid">
+                    <div class="img"></div>
+                    <div class="del file-input-del" id="" name="logo_other">点击更换</div>
+                    <div class="r-note">(建议尺寸210*55)</div>
+                </div>
+                <div class="file-input-block" id="J_upload_logo_other_btn" name="logo_other" ><span class="o-txt">上传</span>网站其它页Logo<span class="re-txt">(建议尺寸210*55)</span></div>            <input type="hidden" class="file-input-save-name" name="logo_other" value="">
+            </div>
+            <div class="fl"></div>
+            <div class="fr">
+                <input type="submit" class="admin_submit" value="保存修改"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+<script type="text/javascript">
+    var uploadUrl = "/74cms_v4.2.111/upload/index.php?m=admin&c=upload&a=form_upload";
+</script>
+
+
+</body>
+</html>

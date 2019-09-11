@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心</title>
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/index',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=index&amp;a=panel',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">后台管理中心<strong>/</strong>首页</div>
+<div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            <!--欢迎登录 骑士人才系统 管理中心！-->        </div>
+        <div class="clear"></div>
+    </div>
+    <span id="version"></span>
+    <div class="toptit">今日统计</div>
+    <div class="mainli num">新增个人会员<a href="javascript:;" id="personal_users">&nbsp;</a></div>
+    <div class="mainli num">新增简历<a href="javascript:;" id="resumes">&nbsp;</a></div>
+    <div class="mainli num">简历刷新次数<a href="javascript:;" id="resume_refresh">&nbsp;</a></div>
+    <div class="mainli num">新增企业会员<a href="javascript:;" id="company_users">&nbsp;</a></div>
+    <div class="mainli num">新增职位<a href="javascript:;" id="jobs">&nbsp;</a></div>
+    <div class="mainli num">简历下载量<a href="javascript:;" id="resume_down">&nbsp;</a></div>
+    <div class="mainli num">企业新增订单<a href="javascript:;" id="company_order">&nbsp;</a></div>
+    <div class="mainli num">个人新增订单<a href="javascript:;" id="personal_order">&nbsp;</a></div>
+    <div class="mainli num">发出面试邀请<a href="javascript:;" id="interview">&nbsp;</a></div>
+    <div class="mainli num">简历投递数<a href="javascript:;" id="jobs_apply">&nbsp;</a></div>
+    <div class="mainli num">职位刷新数<a href="javascript:;" id="jobs_refresh">&nbsp;</a></div>
+    <div class="clear"></div>
+
+    <div class="toptit">昨日统计</div>
+    <div class="mainli num">新增个人会员<a href="javascript:;" id="yesterday_personal_users">&nbsp;</a></div>
+    <div class="mainli num">新增简历<a href="javascript:;" id="yesterday_resumes">&nbsp;</a></div>
+    <div class="mainli num">简历刷新次数<a href="javascript:;" id="yesterday_resume_refresh">&nbsp;</a></div>
+    <div class="mainli num">新增企业会员<a href="javascript:;" id="yesterday_company_users">&nbsp;</a></div>
+    <div class="mainli num">新增职位<a href="javascript:;" id="yesterday_jobs">&nbsp;</a></div>
+    <div class="mainli num">简历下载量<a href="javascript:;" id="yesterday_resume_down">&nbsp;</a></div>
+    <div class="mainli num">企业新增订单<a href="javascript:;" id="yesterday_company_order">&nbsp;</a></div>
+    <div class="mainli num">个人新增订单<a href="javascript:;" id="yesterday_personal_order">&nbsp;</a></div>
+    <div class="mainli num">发出面试邀请<a href="javascript:;" id="yesterday_interview">&nbsp;</a></div>
+    <div class="mainli num">简历投递数<a href="javascript:;" id="yesterday_jobs_apply">&nbsp;</a></div>
+    <div class="mainli num">职位刷新数<a href="javascript:;" id="yesterday_jobs_refresh">&nbsp;</a></div>
+    <div class="clear"></div>
+
+    <div class="toptit">待处理事务</div>
+    <div class="mainli num">待审核职位<a href="/74cms_v4.2.111/upload/index.php?m=admin&c=jobs&a=index_noaudit" id="jobs_audit">&nbsp;</a></div>
+    <div class="mainli num">待认证企业<a href="/74cms_v4.2.111/upload/index.php?m=admin&c=company&a=index&audit=2" id="company_audit">&nbsp;</a></div>
+    <div class="mainli num">举报信息<a href="/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index" id="report">&nbsp;</a></div>
+    <div class="mainli num">待审核简历<a href="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index_noaudit" id="resume_audit">&nbsp;</a></div>
+    <div class="mainli num">待审核简历照片/作品<a href="/74cms_v4.2.111/upload/index.php?m=admin&c=resume_img&a=index&audit=2" id="resume_img_audit">&nbsp;</a></div>
+    <div class="mainli num">意见/建议<a href="/74cms_v4.2.111/upload/index.php?m=admin&c=feedback&a=index" id="feedback">&nbsp;</a></div>
+    <div class="clear"></div>
+
+    <div class="toptit">最近30天会员注册趋势</div>
+    <script language="JavaScript" src="/upload/Application/Admin/View/default/public/js/FusionCharts.js"></script>
+    <div id="chartdiv" style=" padding: 0 25px;">FusionCharts.</div>
+    <script type="text/javascript">
+        var chart = new FusionCharts("/upload/Application/Admin/View/default/public/js/statement/area2D.swf", "ChartId", "1000", "200");
+        chart.setDataURL("./data/statistics/userreg_30_days.xml");
+        chart.render("chartdiv");
+    </script>
+    <script type="text/javascript">
+        var tsTimeStamp= new Date().getTime();
+        $.getJSON("/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=total",function(result){
+            for(var i in result.data){
+                if(result.data[i]==0)
+                {
+                    $("#"+i).html(result.data[i]);
+                }
+                else
+                {
+                    $("#"+i).html('+'+result.data[i]);
+                }
+
+            }
+        });
+    </script>
+
+    <div class="toptit">骑士cms人才系统</div>
+    <div class="mainli">系统当前版本：v4.2.111<span id="update_notice"></span></div>
+    <div class="mainli link_blue">认证授权：<span id="certification">载入中...</span></div>
+    <div class="mainli link_blue">骑士官网：<a href="http://www.74cms.com" target="_blank">www.74cms.com</a></div>
+    <div class="mainli">程序开发：74CMS程序开发组</div>
+    <div class="mainli">版权所有：骑士CMS</div>
+    <div class="mainli link_blue">官方论坛：<a href="http://ask.74cms.com/" target="_blank">ask.74cms.com</a></div>
+    <div class="clear"></div>
+
+    <div class="toptit">服务器信息</div>
+    <div class="mainli">操作系统：WINNT</div>
+    <div class="mainli">PHP版本：5.4.3</div>
+    <div class="mainli">MySQL版本：</div>
+    <div class="mainli">服务器软件：Apache/2.4.2 (Win64) PHP/5.4.3</div>
+    <div class="clear"></div>
+
+    <div class="toptit">官方动态</div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="4">
+        <tr>
+            <td style=" line-height:220%; padding-left:40px;" class="link_blue">
+                <span id="announcement" class="link_lan">载入中...</span>
+            </td>
+        </tr>
+    </table>
+    <script src="http://www.74cms.com/plus/external.php?version=4.2.111&release=&certification=http://localhost&announcement=1" language="javascript"></script>
+</div>
+
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".li").first().addClass("select");
+            $(".li").click(function () {
+                $(".li").removeClass("select");
+                $(this).addClass("select");
+                $(this).blur();
+            });
+        });
+    </script>
+</head>
+<body style="background-color:#2F4050">
+<div class="frame_left">
+    <div class="tops"></div>
+    <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=jobs&a=index" target="mainFrame" class="li select" title="职位管理" stat="jobs">
+        <span class="J_menu_name">职位管理</span>
+        <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/195.png" border="0"/></div>
+    </a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=company&a=index" target="mainFrame" class="li " title="企业管理" stat="company_audit">
+    <span class="J_menu_name">企业管理</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/198.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=company_members&a=index" target="mainFrame" class="li " title="企业会员" >
+    <span class="J_menu_name">企业会员</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/179.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=company_img&a=index" target="mainFrame" class="li " title="企业风采" stat="company_img">
+    <span class="J_menu_name">企业风采</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/203.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=set_com&a=index" target="mainFrame" class="li " title="企业设置" >
+    <span class="J_menu_name">企业设置</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/240.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=business_setmeal&a=index" target="mainFrame" class="li " title="业务管理" >
+    <span class="J_menu_name">业务管理</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/201.png" border="0"/></div>
+</a>    </div>
+</body>
+<script type="text/javascript">
+    function refresh_affair(){
+        var affair = $('.frame_left a[stat]').map(function(){
+            return $(this).attr('stat');
+        }).get();
+        $.post("/74cms_v4.2.111/upload/index.php?m=admin&c=ajax&a=affair_stat",{affair:affair},function(result){
+            if(result.status == 1){
+                result.data = result.data || {};
+                $('.frame_left a[stat]').each(function(){
+                    var h = result.data[$(this).attr('stat')];
+                    $(this).find('.J_menu_name').find("span").remove();
+                    h = h ? '<div class="count"></div>' : '';
+                    $(this).append(h);
+                });
+            }
+        },'json');
+    }
+    refresh_affair();
+</script>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/notice',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=notice&amp;a=index&amp;menu_id=112&amp;sub_menu_id=116',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">内容<strong>/</strong>公告管理</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            公告管理                        </div>
+        <div class="topnav">
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index" class="select">公告列表</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=add" class="">添加公告</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=category" class="">公告分类</a>                <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+
+    <div class="seltpye_x">
+        <div class="left">公告分类</div>
+        <div class="right">
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&menu_id=112&sub_menu_id=116&type_id=" class="select">不限</a>
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&menu_id=112&sub_menu_id=116&type_id=1" >首页公告</a>        <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="seltpye_x">
+        <div class="left">添加时间</div>
+        <div class="right">
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&menu_id=112&sub_menu_id=116&settr=" class="select">不限</a>
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&menu_id=112&sub_menu_id=116&settr=3" >三天内</a>
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&menu_id=112&sub_menu_id=116&settr=7" >一周内</a>
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&menu_id=112&sub_menu_id=116&settr=30" >一月内</a>
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&menu_id=112&sub_menu_id=116&settr=180" >半年内</a>
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&menu_id=112&sub_menu_id=116&settr=360" >一年内</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <form id="form1" name="form1" method="post" action="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=delete">
+        <div class="list_th">
+            <div class="td" style=" width:40%;">
+                <label id="chkAll" class="left_padding">
+                    <input type="checkbox" name="chkAll" id="chk" title="全选/反选"/>标题
+                </label>
+            </div>
+            <div class="td" style=" width:15%;">所属分类</div>
+            <div class="td center" style=" width:10%;">排序</div>
+            <div class="td center" style=" width:10%;">点击</div>
+            <div class="td center" style=" width:15%;">添加日期</div>
+            <div class="td" style=" width:10%;">操作</div>
+            <div class="clear"></div>
+        </div>
+
+    </form>
+
+    <div class="list_empty">没有任何信息！</div>
+    <div class="list_foot">
+        <div class="btnbox">
+            <input type="button" class="admin_submit" id="ButAdd" value="添加公告" onclick="window.location='/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=add'"/>
+            <input type="button" class="admin_submit" id="ButDel" value="删除"/>
+        </div>
+
+        <div class="footso">
+            <form action="?" method="get">
+                <div class="sobox">
+                    <input type="hidden" name="m" value="Admin">
+                    <input type="hidden" name="c" value="Notice">
+                    <input type="hidden" name="a" value="index">
+                    <input name="key" type="text" class="sinput" value=""/>
+                    <input name="key_type" id="J_key_type_id" type="hidden" value="1" />
+                    <input name="key_type_cn" id="J_key_type_cn" type="hidden" value="标题"/>
+                    <input name="" type="submit" value="" class="sobtn"/>
+                    <div class="sotype" id="J_key_click">标题</div>
+                    <div class="mlist" id="J_mlist">
+                        <ul>
+                            <li id="1" title="标题">标题</li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pages"></div>
+
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //批量删除
+        $("#ButDel").click(function () {
+            var ids = $("input[name='id[]']:checked");
+            if(ids.length == 0){
+                disapperTooltip('remind','请选择公告！');
+            } else {
+                if(confirm('确定删除吗？')){
+                    $("#form1").submit();
+                }
+            }
+        });
+    });
+</script>
+</html>

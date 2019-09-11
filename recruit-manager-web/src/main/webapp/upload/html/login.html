@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS"/>
+    <meta name="copyright" content="74cms.com"/>
+    <title>网站后台管理中心- Powered by 74CMS</title>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css"/>
+</head>
+<body style="background-color:#FFFFFF">
+<div class="login_top">
+    <div class="logo"><img src="/upload/Application/Admin/View/default/public/images/login_logo.gif"/></div>
+</div>
+<form id="form1" name="form1" method="post" action="/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=login">
+    <div class="login_main">
+        <div class="ce">
+            <div class="imgbg"></div>
+            <input name="username" type="text" maxlength="16" id="username" class="linput" placeholder="请输入用户名"/>
+        </div>
+        <div class="ce">
+            <div class="imgbg pwd"></div>
+            <input name="password" type="password" id="admin_pwd" value="" class="linput pwd" placeholder="请输入密码"/>
+        </div>
+        <div class="ce">
+            <input class="btn" type="button" name="Submit" id="J_dologin" value="登录"/>
+            <input type="button" id="btnCheck" style="display:none;">
+        </div>
+    </div>
+    <div id="popup-captcha"></div>
+    <input type="hidden" name="geetest_challenge" class="J_gee_cha" value="">
+    <input type="hidden" name="geetest_validate" class="J_gee_val" value="">
+    <input type="hidden" name="geetest_seccode" class="J_gee_sec" value="">
+</form>
+
+<div class="login_foot link_blue">
+    74cms是一个采用 PHP 和 MySQL 构建的高效人才系统解决方案 <a href="http://ask.74cms.com/" target="_blank">技术论坛</a><br/>
+    Powered by <a href="http://www.74cms.com/" target="_blank"><em>74cms v 4.2.111 </em></a> Copyright &copy;2019</div>
+
+</body>
+</html>

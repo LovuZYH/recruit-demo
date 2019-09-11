@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心</title>
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".frame_top .navmenu a").click(function () {
+                $(".frame_top .navmenu a").removeClass("select");
+                $(this).addClass("select");
+                $(this).blur();
+                if (!$(this).hasClass('for_more')) {
+                    window.parent.frames["leftFrame"].location.href = $(this).attr('frame-url');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="frame_top">
+    <div class="logo">
+        <img src="/upload/Application/Admin/View/default/public/images/admin_logo_in.png" border="0"/>
+    </div>
+    <div class="navmenu">
+        <a href="/upload/html/panel.html" class="select" target="mainFrame" id="index" data-id="0" frame-url="/upload/html/leftmenu.html">首页</a>
+        <a href="/upload/zclhtml/zhiweiguanli.html" target="mainFrame" frame-url="/upload/html/leftcompany.html" data-id="194" title="企业" stat="company">企业</a>
+        <a href="/upload/htmlzwb/jianliliebiao.html" target="mainFrame" frame-url="/upload/html/leftpersonage.html" data-id="171" title="个人" stat="personal">个人</a>
+        <a href="/upload/contenthtml/firstcontent.html" target="mainFrame" frame-url="/upload/html/leftcontent.html" data-id="112" title="内容" stat="content">内容</a>
+        <a href="/upload/instrument/firstinstrument.html" target="mainFrame" frame-url="/upload/html/leftinstrument.html" data-id="15" title="工具" >工具</a>
+        <a href="/upload/systemhtml/firstsystem.html" target="mainFrame" frame-url="/upload/html/leftsystem.html" data-id="1" title="系统" >系统</a>
+        <div class="clear"></div>
+    </div>
+    <div class="links">
+        <a href="http://localhost/74cms_v4.2.111/upload/" target="_blank" class="home" title="网站首页"></a>
+        <a href="/upload/html/login.html" target="_top" class="logout" title="退出登录"></a>
+        <a href="http://ask.74cms.com/" target="_blank" class="qscms" title="官方问答"></a>
+        <div class="clear"></div>
+    </div>
+    <div class="adminname">
+        <div class="unamestr">admin<span style=" padding-left:10px; color:#009900">(超级管理员)</span></div>
+        <div class="useravatar"><img src="/upload/Application/Admin/View/default/public/images/avatar.jpg" border="0"/></div>
+        <div class="clear"></div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    function refresh_affair(){
+        var affair = $('.navmenu a[stat]').map(function(){
+            return $(this).attr('stat');
+        }).get();
+        $.post("/74cms_v4.2.111/upload/index.php?m=admin&c=ajax&a=affair",{affair:affair},function(result){
+            if(result.status == 1){
+                result.data = result.data || {};
+                $('.navmenu a[stat]').each(function(){
+                    var h = result.data[$(this).attr('stat')];
+                    h = h ? '<div class="count"></div>' : '';
+                    $(this).html($(this).attr('title')+h);
+                });
+            }
+        },'json');
+    }
+    refresh_affair();
+</script>
+</html>

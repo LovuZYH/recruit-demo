@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/clearcache',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=clearcache&amp;a=index&amp;menu_id=15&amp;sub_menu_id=319',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">工具<strong>/</strong>更新缓存</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            更新缓存                        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="toptip">
+        <div class="toptit">提示：</div>
+        <p>当进行了数据恢复、升级或者工作出现异常的时候，您可以使用本功能重新生成缓存。</p>
+        <p>数据缓存：更新网站设置、积分规则、邮件设置等缓存 </p>
+        <p>模板缓存：更新模板、风格等缓存文件，当您修改了模板或者风格，但是没有立即生效的时候使用 </p>
+    </div>
+    <form id="form1" name="form1" method="post" action="/74cms_v4.2.111/upload/index.php?m=admin&c=clearcache&a=index">
+        <div class="toptit">更新选项</div>
+        <div class="form_main width120" id="selecttplcache">
+            <div class="fl" style="width:50px;"></div>
+            <div class="fr txt ">
+                <label><input  type="checkbox" checked="checked" value="datacache" name="type[]"/> 数据缓存</label>
+                <label><input id="tplcache" type="checkbox"   value="tplcache" name="type[]" checked="checked"/> 模板缓存</label>
+                <label><input id="logcache" type="checkbox"   value="logcache" name="type[]" checked="checked"/> 日志缓存</label>
+                <label><input id="pagecache" type="checkbox"   value="pagecache" name="type[]" checked="checked"/> 页面缓存</label>
+            </div>
+            <div class="clear"></div>
+            <div class="fl" style="width:50px;"></div>
+            <div class="fr txt">
+                <input name="submit" type="submit" class="admin_submit"    value="清除缓存" onclick="document.getElementById('selecttplcache').style.display='none';document.getElementById('hide').style.display='block';"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="form_main width120" id="hide" style="display:none">
+            <div class="fl" style="width:50px;"></div>
+            <div class="fr txt ">
+                <img src="/upload/Application/Admin/View/default/public/images/ajax_loader.gif"  border="0" />
+            </div>
+            <div class="clear"></div>
+            <div class="fl" style="width:50px;"></div>
+            <div class="fr txt"style="color: #009900">
+                正在清除缓存，请稍候......
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+</body>
+</html>

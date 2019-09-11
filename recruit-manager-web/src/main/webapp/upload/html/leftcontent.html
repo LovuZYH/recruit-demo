@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".li").first().addClass("select");
+            $(".li").click(function () {
+                $(".li").removeClass("select");
+                $(this).addClass("select");
+                $(this).blur();
+            });
+        });
+    </script>
+</head>
+<body style="background-color:#2F4050">
+<div class="frame_left">
+    <div class="tops"></div>
+    <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index" target="mainFrame" class="li select" title="公告管理" >
+        <span class="J_menu_name">公告管理</span>
+        <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/116.png" border="0"/></div>
+    </a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=index" target="mainFrame" class="li " title="说明页" >
+    <span class="J_menu_name">说明页</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/115.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=index" target="mainFrame" class="li " title="消息" >
+    <span class="J_menu_name">消息</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/95.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=article&a=index" target="mainFrame" class="li " title="新闻资讯" >
+    <span class="J_menu_name">新闻资讯</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/114.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=ad&a=index" target="mainFrame" class="li " title="广告管理" >
+    <span class="J_menu_name">广告管理</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/267.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=link&a=index" target="mainFrame" class="li " title="友情链接" >
+    <span class="J_menu_name">友情链接</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/269.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index" target="mainFrame" class="li " title="投诉建议" >
+    <span class="J_menu_name">投诉建议</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/119.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index" target="mainFrame" class="li " title="HR工具箱" >
+    <span class="J_menu_name">HR工具箱</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/117.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=help&a=index" target="mainFrame" class="li " title="帮助中心" >
+    <span class="J_menu_name">帮助中心</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/118.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index" target="mainFrame" class="li " title="账号申诉" stat="appeal">
+    <span class="J_menu_name">账号申诉</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/374.png" border="0"/></div>
+</a>    </div>
+</body>
+<script type="text/javascript">
+    function refresh_affair(){
+        var affair = $('.frame_left a[stat]').map(function(){
+            return $(this).attr('stat');
+        }).get();
+        $.post("/74cms_v4.2.111/upload/index.php?m=admin&c=ajax&a=affair_stat",{affair:affair},function(result){
+            if(result.status == 1){
+                result.data = result.data || {};
+                $('.frame_left a[stat]').each(function(){
+                    var h = result.data[$(this).attr('stat')];
+                    $(this).find('.J_menu_name').find("span").remove();
+                    h = h ? '<div class="count"></div>' : '';
+                    $(this).append(h);
+                });
+            }
+        },'json');
+    }
+    refresh_affair();
+</script>
+</html>

@@ -1,0 +1,8 @@
+entity\PageResult.class
+com\zp\model\LtHuiyuan.class
+entity\Result.class
+com\zp\model\RecruitModel.class
+com\zp\model\LtHuiyuanExample$GeneratedCriteria.class
+com\zp\model\LtHuiyuanExample$Criterion.class
+com\zp\model\LtHuiyuanExample$Criteria.class
+com\zp\model\LtHuiyuanExample.class

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".li").first().addClass("select");
+            $(".li").click(function () {
+                $(".li").removeClass("select");
+                $(this).addClass("select");
+                $(this).blur();
+            });
+        });
+    </script>
+</head>
+<body style="background-color:#2F4050">
+<div class="frame_left">
+    <div class="tops"></div>
+    <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index" target="mainFrame" class="li select" title="简历列表" stat="resume">
+        <span class="J_menu_name">简历列表</span>
+        <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/172.png" border="0"/></div>
+    </a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=resume_img&a=index" target="mainFrame" class="li " title="附件作品" stat="resume_img">
+    <span class="J_menu_name">附件作品</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/511.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=member_list" target="mainFrame" class="li " title="个人会员" >
+    <span class="J_menu_name">个人会员</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/179.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=jobs_subscribe" target="mainFrame" class="li " title="职位订阅" >
+    <span class="J_menu_name">职位订阅</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/325.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=set_per&a=index" target="mainFrame" class="li " title="个人设置" >
+    <span class="J_menu_name">个人设置</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/248.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=order&a=index_per" target="mainFrame" class="li " title="业务管理" >
+    <span class="J_menu_name">业务管理</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/176.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=entrust" target="mainFrame" class="li " title="委托投递" stat="resume_entrust">
+    <span class="J_menu_name">委托投递</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/1038.png" border="0"/></div>
+</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=top_resume" target="mainFrame" class="li " title="高级人才" >
+    <span class="J_menu_name">高级人才</span>
+    <div class="linkimg"><img src="/upload/Application/Admin/View/default/public/images/menu/1202.png" border="0"/></div>
+</a>    </div>
+</body>
+<script type="text/javascript">
+    function refresh_affair(){
+        var affair = $('.frame_left a[stat]').map(function(){
+            return $(this).attr('stat');
+        }).get();
+        $.post("/74cms_v4.2.111/upload/index.php?m=admin&c=ajax&a=affair_stat",{affair:affair},function(result){
+            if(result.status == 1){
+                result.data = result.data || {};
+                $('.frame_left a[stat]').each(function(){
+                    var h = result.data[$(this).attr('stat')];
+                    $(this).find('.J_menu_name').find("span").remove();
+                    //h = h ? '<span style="color: #FF0000;">('+h+')</span>' : '';
+                    //$(this).find('.J_menu_name').append(h);
+                    //$(this).html($(this).attr('title')+h);
+                    h = h ? '<div class="count"></div>' : '';
+                    $(this).append(h);
+                });
+            }
+        },'json');
+    }
+    refresh_affair();
+</script>
+</html>

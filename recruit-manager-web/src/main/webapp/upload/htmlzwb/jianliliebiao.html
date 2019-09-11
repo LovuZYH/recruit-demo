@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="/upload/html/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/personal',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=personal&amp;a=index&amp;menu_id=171&amp;sub_menu_id=172',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">个人<strong>/</strong>简历列表</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            简历列表                        </div>
+        <div class="topnav">
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index" class="select">全部简历</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=photo" class="">照片简历</a>                <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+    <div class="toptip">
+        <div class="toptit">提示：</div>
+        <p>可见简历是指：审核通过、审核中等能正常显示的简历。</p>
+        <p>不可见简历指：审核未通过等网站前台不显示的简历。</p>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">可见状态</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&tabletype=0&tabletype_cn=%E4%B8%8D%E9%99%90">不限<span>(0)</span></li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&tabletype=1&tabletype_cn=%E5%8F%AF%E8%A7%81%E7%AE%80%E5%8E%86">可见简历<span>(0)</span></li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&tabletype=2&tabletype_cn=%E9%9D%9E%E5%8F%AF%E8%A7%81%E7%AE%80%E5%8E%86">非可见简历<span>(0)</span></li>
+        </div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">审核状态</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&audit=&audit_cn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&audit=2&audit_cn=%E7%AD%89%E5%BE%85%E5%AE%A1%E6%A0%B8">等待审核</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&audit=1&audit_cn=%E5%AE%A1%E6%A0%B8%E9%80%9A%E8%BF%87">审核通过<span>(0)</span></li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&audit=3&audit_cn=%E5%AE%A1%E6%A0%B8%E6%9C%AA%E9%80%9A%E8%BF%87" title="审核未通过">审核未通过<span>(0)</span></li>    </div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">简历照片</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&photos=&photos_cn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&photos=1&photos_cn=%E6%9C%89">有</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&photos=2&photos_cn=%E6%97%A0">无</li>
+        </div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">创建时间</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&addtimesettr=&addtimesettr_cn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&addtimesettr=3&addtimesettr_cn=%E4%B8%89%E5%A4%A9%E5%86%85">三天内</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&addtimesettr=7&addtimesettr_cn=%E4%B8%80%E5%91%A8%E5%86%85">一周内</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&addtimesettr=30&addtimesettr_cn=%E4%B8%80%E6%9C%88%E5%86%85">一月内</li>
+        </div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">刷新时间</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&settr=&settr_cn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&settr=3&settr_cn=%E4%B8%89%E5%A4%A9%E5%86%85">三天内</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&settr=7&settr_cn=%E4%B8%80%E5%91%A8%E5%86%85">一周内</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&settr=30&settr_cn=%E4%B8%80%E6%9C%88%E5%86%85">一月内</li>
+        </div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">排序方式</div>
+        <div class="ct">
+            <div class="txt ">发布时间</div>
+        </div>
+        <div class="downlist">
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&orderby=addtime&orderby_cn=%E5%88%9B%E5%BB%BA%E6%97%B6%E9%97%B4">创建时间</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&orderby=refreshtime&orderby_cn=%E5%88%B7%E6%96%B0%E6%97%B6%E9%97%B4">刷新时间</li>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <form id="form1" name="form1" method="post" action="/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=set_audit">
+        <div class="list_th">
+            <div class="td" style=" width:17%;">
+                <label id="chkAll" class="left_padding">
+                    <input type="checkbox" name="chkAll" id="chk" title="全选/反选"/>姓名
+                </label>
+            </div>
+            <div class="td" style=" width:18%;">基本信息</div>
+            <div class="td" style=" width:8%;">简历完整度</div>
+            <div class="td center" style=" width:8%;">审核状态&nbsp;&nbsp;&nbsp;</div>
+            <div class="td center" style=" width:5%;">公开</div>
+            <div class="td center" style=" width:8%;">创建时间</div>
+            <div class="td center" style=" width:8%;">刷新时间</div>
+            <div class="td center" style=" width:5%;">高级人才</div>
+            <div class="td" style=" width:20%;">操作</div>
+            <div class="clear"></div>
+        </div>
+
+    </form>
+
+    <div class="list_empty">没有任何信息！</div>
+    <div class="list_foot">
+        <div class="btnbox">
+            <input type="button" class="admin_submit" id="ButAudit" value="审核简历"/>
+            <input type="button" class="admin_submit" id="ButRefresh" value="刷新"/>
+            <input type="button" class="admin_submit" id="ButDel" value="删除"/>
+        </div>
+
+        <div class="footso">
+            <form action="?" method="get">
+                <div class="sobox">
+                    <input type="hidden" name="m" value="Admin">
+                    <input type="hidden" name="c" value="Personal">
+                    <input type="hidden" name="a" value="index">
+                    <input name="key" type="text" class="sinput" value=""/>
+                    <input name="key_type" id="J_key_type_id" type="hidden" value="1" />
+                    <input name="key_type_cn" id="J_key_type_cn" type="hidden" value="姓名"/>
+                    <input name="" type="submit" value="" class="sobtn"/>
+                    <div class="sotype" id="J_key_click">姓名</div>
+                    <div class="mlist" id="J_mlist">
+                        <ul>
+                            <li id="1" title="姓名">姓名</li>
+                            <li id="2" title="简历ID">简历ID</li>
+                            <li id="3" title="会员ID">会员ID</li>
+                            <li id="4" title="电话">电话</li>
+                            <!--<li id="5" title="QQ">QQ</li>-->
+                            <li id="6" title="地址">地址</li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pages"></div>
+
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+
+</body>
+<script type="text/javascript" src="/upload/Application/Admin/View/default/public/js/jquery.entrustinfotip-min.js"></script>
+<script type="text/javascript">
+
+</script>
+</html>
